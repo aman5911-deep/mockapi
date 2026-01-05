@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "createdAt": "2026-01-04T21:09:54.692Z",
+      "name": "Al Predovic",
+      "avatar": "https://avatars.githubusercontent.com/u/19435656",
+      "email": "Haleigh87@gmail.com",
+      "role": "role 1",
+      "child": {
+        "firstname": "John",
+        "lastname": "Doe"
+      }
+    },
+    {
+      "id": "2",
+      "createdAt": "2026-01-05T10:23:45.463Z",
+      "name": "Herbert Ebert",
+      "avatar": "https://avatars.githubusercontent.com/u/43145720",
+      "email": "Keeley15@hotmail.com",
+      "role": "role 2",
+      "child": {
+        "firstname": "Jane",
+        "lastname": "Smith"
+      }
+    },
+    {
+      "id": "3",
+      "createdAt": "2026-01-05T08:23:36.314Z",
+      "name": "Angelica Marvin",
+      "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/68.jpg",
+      "email": "Emile33@gmail.com",
+      "role": "role 3",
+      "child": {
+        "firstname": "Mike",
+        "lastname": "Johnson"
+      }
+    },
+    {
+      "id": "4",
+      "createdAt": "2026-01-04T13:23:52.988Z",
+      "name": "Joseph Wolff",
+      "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/38.jpg",
+      "email": "Jocelyn_Treutel@hotmail.com",
+      "role": "role 4",
+      "child": {
+        "firstname": "Sarah",
+        "lastname": "Williams"
+      }
+    },
+    {
+      "id": "5",
+      "createdAt": "2026-01-05T00:14:26.909Z",
+      "name": "Carmen Langworth",
+      "avatar": "https://avatars.githubusercontent.com/u/98532525",
+      "email": "Letitia47@yahoo.com",
+      "role": "role 5",
+      "child": {
+        "firstname": "Tom",
+        "lastname": "Brown"
+      }
+    },
+    {
+      "name": "sidhu",
+      "email": "sidhu@gmail.com",
+      "role": "singer",
+      "id": "4b77"
+    }
+  ]
+}

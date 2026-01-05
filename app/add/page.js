@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const API_URL = 'https://695b96941d8041d5eeb770ce.mockapi.io/api/v1/users';
+const API_URL = 'https://695ba32b1d8041d5eeb7b9fe.mockapi.io/api/v1/users';
 
 export default function AddUser() {
   const [name, setName] = useState('');

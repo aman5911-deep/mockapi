@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState, useMemo } from 'react';
 
-const API_URL = 'https://695b96941d8041d5eeb770ce.mockapi.io/api/v1/users';
+const API_URL = 'https://695ba32b1d8041d5eeb7b9fe.mockapi.io/api/v1/users';
 
 interface User {
   id: string;
@@ -12,6 +12,10 @@ interface User {
   avatar: string;
   email: string;
   role: string;
+  child?: {
+    firstname: string;
+    lastname: string;
+  };
 }
 
 export default function Home() {
@@ -32,6 +36,10 @@ export default function Home() {
   // Delete confirmation modal state
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState<string | null>(null);
+
+  // Child info modal state
+  const [showChildModal, setShowChildModal] = useState(false);
+  const [selectedChild, setSelectedChild] = useState<{firstname: string; lastname: string} | null>(null);
 
   const showNotification = (message: string) => {
     setNotification(message);
@@ -206,6 +214,102 @@ export default function Home() {
                 }}
               >
                 Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Child Info Modal */}
+      {showChildModal && selectedChild && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 2000
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '10px',
+            padding: '30px',
+            maxWidth: '400px',
+            width: '90%',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+          }}>
+            <h2 style={{ 
+              margin: '0 0 20px 0', 
+              fontSize: '20px', 
+              color: '#333' 
+            }}>
+              Child Information
+            </h2>
+            <div style={{
+              marginBottom: '15px'
+            }}>
+              <label style={{
+                display: 'block',
+                fontSize: '12px',
+                color: '#666',
+                marginBottom: '5px',
+                fontWeight: '500'
+              }}>First Name</label>
+              <div style={{
+                padding: '10px 15px',
+                background: '#f5f5f5',
+                borderRadius: '5px',
+                fontSize: '14px',
+                color: '#333'
+              }}>
+                {selectedChild.firstname}
+              </div>
+            </div>
+            <div style={{
+              marginBottom: '25px'
+            }}>
+              <label style={{
+                display: 'block',
+                fontSize: '12px',
+                color: '#666',
+                marginBottom: '5px',
+                fontWeight: '500'
+              }}>Last Name</label>
+              <div style={{
+                padding: '10px 15px',
+                background: '#f5f5f5',
+                borderRadius: '5px',
+                fontSize: '14px',
+                color: '#333'
+              }}>
+                {selectedChild.lastname}
+              </div>
+            </div>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'flex-end' 
+            }}>
+              <button
+                onClick={() => {
+                  setShowChildModal(false);
+                  setSelectedChild(null);
+                }}
+                style={{
+                  padding: '10px 20px',
+                  background: '#333',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500'
+                }}
+              >
+                Close
               </button>
             </div>
           </div>
@@ -461,7 +565,25 @@ export default function Home() {
               }}>{user.role}</span>
             </div>
 
-            <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>
+            <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>              {user.child && (
+                <button
+                  onClick={() => {
+                    setSelectedChild(user.child!);
+                    setShowChildModal(true);
+                  }}
+                  style={{ 
+                    padding: '8px 16px',
+                    background: '#10b981',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                >
+                  Child
+                </button>
+              )}
               <Link 
                 href={`/edit/${user.id}`}
                 style={{ 
